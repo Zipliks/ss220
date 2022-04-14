@@ -1,0 +1,510 @@
+<html>
+<head>
+<style>
+body,table
+{
+	font-family: Arial;
+	padding: 0;
+	margin: 0;
+	background-color: #272727;
+	font-size: 12px;
+	color: #ffffff;
+	line-height: 170%;
+}
+
+hr
+{
+	background-color: #40628a;
+	height: 1px;
+}
+
+input
+{
+	width: 60px;
+}
+
+a, a:link, a:visited, a:active, .linkOn, .linkOff
+{ 
+	color: #ffffff; 
+	text-decoration: none;
+	background: #40628a;
+	border: 1px solid #161616;
+	padding: 1px 4px 1px 4px;
+	margin: 0 2px 0 0;
+	cursor:default;
+}
+
+a.nobg, a.nobg:link, a.nobg:visited, a.nobg:active
+{ 
+	color: #ffffff; 
+	text-decoration: none;
+	background: transparent;
+	border: none;
+	padding: 0px;
+	margin: 0px;
+	cursor:default;
+	font-weight:bold;
+}
+a.nobg:hover 
+{ 
+	color:#40628a;
+}
+
+a:hover 
+{ 
+	color: #40628a;
+	background: #ffffff;
+}
+
+a.white, a.white:link, a.white:visited, a.white:active
+{ 
+	color: #40628a; 
+	text-decoration: none;
+	background: #ffffff;
+	border: 1px solid #161616;
+	padding: 1px 4px 1px 4px;
+	margin: 0 2px 0 0;
+	cursor:default;
+}
+
+a.white:hover 
+{ 
+	color: #ffffff;
+	background: #40628a;
+}
+
+.linkOn, a.linkOn:link, a.linkOn:visited, a.linkOn:active, a.linkOn:hover
+{ 
+	color: #ffffff; 
+	background: #2f943c;
+	border-color: #24722e;
+}
+
+.linkOff, a.linkOff:link, a.linkOff:visited, a.linkOff:active, a.linkOff:hover
+{ 
+	color: #ffffff; 
+	background: #999999;
+	border-color: #666666;
+}
+
+a.icon, .linkOn.icon, .linkOff.icon
+{
+	position: relative;
+	padding: 1px 4px 2px 20px;
+}
+
+a.icon img, .linkOn.icon img
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 18px;
+	height: 18px;
+}
+
+ul
+{
+	padding: 4px 0 0 10px;
+	margin: 0;
+	list-style-type: none;
+}
+
+li
+{
+	padding: 0 0 2px 0;
+}
+
+img, a img 
+{ 
+	border-style:none; 
+}
+
+h1, h2, h3, h4, h5, h6
+{
+	margin: 0;
+	padding: 16px 0 8px 0; 
+	color: #517087;
+}
+
+h1
+{
+	font-size: 15px;
+}
+
+h2
+{
+	font-size: 14px;
+}
+
+h3
+{
+	font-size: 13px;
+}
+
+h4
+{
+	font-size: 12px;
+}
+
+.uiWrapper
+{
+
+	width: 100%;
+	height: 100%;
+	padding-top:32px;
+}
+
+.uiTitle
+{
+	clear: both;
+	padding: 6px 8px 6px 8px;
+	border-bottom: 2px solid #161616;
+	background: #383838;
+	color: #98B0C3;
+	font-size: 16px;
+}
+
+.uiTitleWrapper
+ {
+ 	position:fixed;
+ 	top:0px;
+ 	left:0px;
+ 	right:0px;
+ 	z-index: 10
+ }
+ 
+ .uiTitleButtons
+ {
+ 	position:fixed;
+ 	top:0px;
+ 	right:0px;
+ 	height:32px;
+ 	z-index:11;
+ }
+
+
+.uiTitle.icon
+{
+	padding: 6px 8px 6px 42px;
+	background-position: 2px 50%;
+	background-repeat: no-repeat;
+}
+
+.uiContent
+{	
+	clear: both;
+	padding: 8px;
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+.good
+{
+	color: #00ff00;
+}
+
+.average
+{
+	color: #d09000;
+}
+
+.bad
+{
+	color: #ff0000;
+}
+
+.highlight
+{
+	color: #8BA5C4;
+}
+
+.dark
+{
+	color: #272727;
+}
+
+.notice
+{
+	position: relative;
+	background: #E9C183;
+	color: #15345A;
+	font-size: 10px;
+	font-style: italic;
+	padding: 2px 4px 0 4px;
+	margin: 4px;
+}
+
+.notice.icon
+{	
+	padding: 2px 4px 0 20px;
+}
+
+.notice img
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 16px;
+	height: 16px;
+}
+
+div.notice
+{
+	clear: both;
+}
+
+.statusDisplay
+{
+	background: #000000;
+	color: #ffffff;
+	border: 1px solid #40628a;
+	padding: 4px;
+	margin: 3px 0;
+}
+
+.statusLabel
+{
+	width: 138px;
+	float: left;
+	overflow: hidden;
+	color: #98B0C3;
+}
+
+.statusValue
+{
+	float: left;
+}
+
+.block
+{
+	padding: 8px;
+	margin: 10px 4px 4px 4px;
+	border: 1px solid #40628a;
+	background-color: #202020;
+}
+
+.block h3
+{
+	padding: 0;
+}
+
+.progressBar
+{
+	width: 240px;
+	height: 14px;
+	border: 1px solid #666666;
+	float: left;
+	margin: 0 5px;
+	overflow: hidden;
+}
+
+.progressFill
+{
+	width: 100%;
+	height: 100%;
+	background: #40628a;
+	overflow: hidden;
+}
+
+.progressFill.good
+{
+	color: #ffffff;
+	background: #00ff00;
+}
+
+.progressFill.average
+{
+	color: #ffffff;
+	background: #d09000;
+}
+
+.progressFill.bad
+{
+	color: #ffffff;
+	background: #ff0000;
+}
+
+.progressFill.highlight
+{
+	color: #ffffff;
+	background: #8BA5C4;
+}
+
+.clearBoth
+{
+	clear: both;
+}
+
+.clearLeft
+{
+	clear: left;
+}
+
+.clearRight
+{
+	clear: right;
+}
+
+.line
+{
+	width: 100%;
+	clear: both;
+}
+</style>
+<script src="./database_master220.js"></script>
+<script>
+rndData.sort( function( a, b ) {
+		a = a.numCost;
+		b = b.numCost;
+		return a < b ? -1 : a > b ? 1 : 0;
+	});
+levelsIntern = ["bio","bs","c","dt","e","em","i","m","pl","pow","ab","tox"];
+levelsDict = {"bio":0,"bs":1,"c":2,"dt":3,"e":4,"em":5,"i":6,"m":7,"pl":8,"pow":9,"ab":10,"tox":11};
+levelsDesc = ["Biotech","Bluespace","Combat","Data","Engineering","Magnets","Illegal","Materials","Plasma","Power","Abductor","Toxins"];
+levels = [1,1,1,1,1,1,1,1,1,1,1,1];
+filterVal = -1;
+function replaceAll(str, find, replace) {
+  return str.replace(new RegExp(find, 'g'), replace);
+}
+function doDisplay()
+{
+
+	var show_illegal = document.getElementById("show_illegal").checked;
+
+	upgradesHTML = '';
+	var upgrades1 = '';
+	var upgrades2 = '';
+	var upgrades3 = '';
+	var upgrades4 = '';
+	var upgrades5 = '';
+	for (var i = 0; i < rndData.length; i++)
+	{
+		var valid = 1;
+		var research = 0;
+		var levelups = 0;
+		var xanlist = rndData[i].xanlist;
+
+		for (var j = 0; j < levelsIntern.length; j++) {
+			// Illegal
+			if (!show_illegal && rndData[i].originTech["i"] > 0) {
+				valid = 0;
+			}
+			
+			// Abductor
+			if (rndData[i].originTech["ab"] > 0) {
+				valid = 0;
+			}
+
+			if (rndData[i].reqTech[levelsIntern[j]] > levels[j]) {
+				valid = 0;
+			}
+			if (rndData[i].originTech[levelsIntern[j]] >= levels[j] && (filterVal == -1 || filterVal == j)) {
+				research = 1;
+			}
+		}
+		var rowHTML = '';
+		if (valid && research) {
+			//rowHTML += '[' + i + ']: ';
+			rowHTML += rndData[i].name;
+			if (rndData[i].buildType != '') {
+				rowHTML += ", сделать в " + rndData[i].buildType;
+			}
+			rowHTML += " (";
+			var comma = 0;
+			for (var j = 0; j < levelsIntern.length; j++) {
+				if (rndData[i].originTech[levelsIntern[j]] >= levels[j]) {
+					if (comma) {
+						rowHTML += ", ";
+					}
+					comma = 1;
+					rowHTML += levelsDesc[j] + ": " + rndData[i].originTech[levelsIntern[j]];
+					
+				}
+				if (rndData[i].originTech[levelsIntern[j]] == levels[j]) {
+					levelups++;
+				}
+			}
+			rowHTML += ")";
+			rowHTML += '<a href="#" onclick=\"deconstruct(' + replaceAll(JSON.stringify(rndData[i].originTech),'"',"'") + ')\">Apply</a> ';
+			var points = levelups;
+			if (levelups == 2) {
+				rowHTML += '<font color="green"><B>' + levelups + ' levels!</B></font> ';
+			} else if (levelups >= 3) {
+				rowHTML += '<font color="red"><B>' + levelups + ' levels!</B></font> ';
+			}
+			if (xanlist) {
+				rowHTML += '<font color="orange"><B>Рекомендуется</B></font>';
+				points += 1;
+			}
+			rowHTML += "<br>";
+			if (points == 5) {
+				upgrades1 += rowHTML;
+			} else if (points == 4) {
+				upgrades2 += rowHTML;
+			} else if (points == 3) {
+				upgrades3 += rowHTML;
+			} else if (points == 2) {
+				upgrades4 += rowHTML;
+			} else {
+				upgrades5 += rowHTML;
+			}
+		}
+	}
+	
+	var fullHTML = upgrades1 + upgrades2 + upgrades3 + upgrades4 + upgrades5;
+	$('#upgrades').html(fullHTML);
+}
+function changeVal(i) {
+	levels[i] = parseInt($('#lvl' + i).val());
+	doDisplay();
+}
+function deconstruct(tech) {
+	for (var j = 0; j < levelsIntern.length; j++) {
+		if (tech[levelsIntern[j]] >= levels[j]) levels[j]++;
+		$('#lvl' + j).val(levels[j])
+	}
+	doDisplay();
+}
+function filter(i) {
+	filterVal = i;
+	doDisplay();
+}
+</script>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body onload="doDisplay()">
+
+<table>
+<tr><td style="text-align:center;font-weight:bold">Технология</td><td style="text-align:center;font-weight:bold">Уровень</td><td style="text-align:center;font-weight:bold">Найти для</td><td style="text-align:left;font-weight:bold">5 -> 7</td></tr>
+<tr><td style="text-align:right">Materials:   </td><td><input type="number" id="lvl7" onchange="changeVal(7)" value="1" /></td><td><a href="#" onclick="filter(7)">Фильтр</a></td><td>Uranium, Diamond (mining)</td></tr>
+<tr><td style="text-align:right">Engineering: </td><td><input type="number" id="lvl4" onchange="changeVal(4)" value="1" /></td><td><a href="#" onclick="filter(4)">Фильтр</a></td><td>2x Machine Prototype (cargo)</td></tr>
+<tr><td style="text-align:right">Plasma:      </td><td><input type="number" id="lvl8" onchange="changeVal(8)" value="1" /></td><td><a href="#" onclick="filter(8)">Фильтр</a></td><td>Phazon Torso, Glowcap / Charged Slime Core (botany/xenobio)</td></tr>
+<tr><td style="text-align:right">Power:       </td><td><input type="number" id="lvl9" onchange="changeVal(9)" value="1" /></td><td><a href="#" onclick="filter(9)">Фильтр</a></td><td>Glowcap / Charged Slime Core (botany/xenobio)</td></tr>
+<tr><td style="text-align:right">Bluespace:   </td><td><input type="number" id="lvl1" onchange="changeVal(1)" value="1" /></td><td><a href="#" onclick="filter(1)">Фильтр</a></td><td>2x Bluespace Polycrystal (mining)</td></tr>
+<tr><td style="text-align:right">Biotech:     </td><td><input type="number" id="lvl0" onchange="changeVal(0)" value="1" /></td><td><a href="#" onclick="filter(0)">Фильтр</a></td><td>Sentience / Consciousness Transfer potions (xenobio)</td></tr>
+<tr><td style="text-align:right">Combat:      </td><td><input type="number" id="lvl2" onchange="changeVal(2)" value="1" /></td><td><a href="#" onclick="filter(2)">Фильтр</a></td><td>Chain of Command, P-X Tesla Cannon (Captain, robotics)</td></tr>
+<tr><td style="text-align:right">Magnets:     </td><td><input type="number" id="lvl5" onchange="changeVal(5)" value="1" /></td><td><a href="#" onclick="filter(5)">Фильтр</a></td><td>2x Lazarus Injector (mining)</td></tr>
+<tr><td style="text-align:right">Data:        </td><td><input type="number" id="lvl3" onchange="changeVal(3)" value="1" /></td><td><a href="#" onclick="filter(3)">Фильтр</a></td><td>Minebot AI Upgrade (mining)</td></tr>
+<tr><td style="text-align:right">Illegal:     </td><td><input type="number" id="lvl6" onchange="changeVal(6)" value="1" /></td><td><a href="#" onclick="filter(6)">Фильтр</a></td><td><input type="checkbox" id="show_illegal" name="show_illegal" title="Show" onclick="doDisplay();" style="width: 10px">Shown</td></tr>
+</table>
+<a href="#" onclick="filter(-1)">Сбросить фильтры</a><br>
+<span id="upgrades">
+</span>
+	
+<BR>Как пользоваться:
+<UL>
+<LI>В поля ввода сверху введите текущие уровни технологий.</LI>
+<LI>Список ниже будет динамически обновляться, указывая на необходимые предметы. Рекомендованные гайдом предметы подсвечены <font color="orange">оранжевым</font>, а дающие несколько уровней <font color="green">зелёным</font>. А могут быть сразу <font color="orange">оба</font> <font color="green">цвета</font>.</LI>
+<LI>Добудьте указанные предметы, разберите в деконструкторе и нажмите "Подтвердить" в спике. Уровни технологий на странице обновятся вместе со списком следующих предметов для разбора. </LI>
+<LI>Для достижения уровней 5+, используйте заметки вверху страницы "Найти для 5 -> 7". Динамический список не всегда полезен для этого.</LI>
+<LI>Если вам кажется, что данный инструмент можно изменить/улучшить, свяжитесь с его автором Kyet. Или напишите мне: zipliks#1111.</LI>
+</UL>
+<BR>Заметки:
+<UL>
+<LI>Оригинальный код основан на работе monster860</LI>
+<LI>Последнее обновление уровней технологий: <B><U><font color='red'>14.04.2022</font></U></B> (согласно текущему билду Paradise /master220)</LI>
+<LI>Изменение кода: 17.06.2021, изменено: добавлен раздел "Как пользоваться", обновлены ссылки, компоненты мехов добавлены в список (прим. зря), вырезаны токсины/предметы абдукторов, т.к. R&D не могу создавать ничего подобного для повышения уровней технологий.</LI>
+<LI>Изменение кода: 14.04.2022, добавлены новые предметы с актуальной ветки Paradise 220, изменён xanlist (рекомендуемые)</LI>
+<LI>"Рекомендованные" предметы основаны на гайде <a href="https://www.paradisestation.org/forum/topic/16834-rd-superguide/" target="_blank">John's Guide</a></a></LI>
+</UL>
+</body>
+</html>
